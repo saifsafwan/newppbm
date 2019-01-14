@@ -107,9 +107,18 @@
 					$dateInDBObj = DateTime::createFromFormat('Y-m-d H:i:s', $dateInDB); //return object
 
 					$interval = $datetime1Obj->diff($dateInDBObj);
-					$elapsed = $interval->format('%h hours %i minutes');
-					$wordLastSeen = "Last seen " . $elapsed . " ago";
-
+					$elapsed = $interval->format('%a days %h hours %i minutes');
+					
+					if($elapsed<="0 days 0 hours 0 minutes"){
+						$wordLastSeen = "Last seen just now";
+					}
+					else if($elapsed<="0 days 23 hours 59 minutes"){
+						$elapsed = $interval->format('%h hours %i minutes');
+						$wordLastSeen = "Last seen " . $elapsed . " ago";
+					}
+					else {
+						$wordLastSeen = "Last seen " . $elapsed . " ago";
+					}
 					echo 	"<td>" .$wordLastSeen."</td>";
 					echo	"<td><span class='tooltip'><a class=\"confirmation\" href=\"?deleteUser=". $row['id']. "\"><img src='img/bin.png'></a><span class='tooltiptext'>Delete User</span></span>";
 
