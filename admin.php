@@ -112,6 +112,10 @@
 					if($elapsed<="0 days 0 hours 0 minutes"){
 						$wordLastSeen = "Last seen just now";
 					}
+					else if($elapsed<="0 days 0 hours 59 minutes"){
+						$elapsed = $interval->format('%i minutes');
+						$wordLastSeen = "Last seen " . $elapsed . " ago";
+					}
 					else if($elapsed<="0 days 23 hours 59 minutes"){
 						$elapsed = $interval->format('%h hours %i minutes');
 						$wordLastSeen = "Last seen " . $elapsed . " ago";
