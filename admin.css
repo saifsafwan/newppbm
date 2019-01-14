@@ -1,0 +1,170 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.pageTitle {
+  text-align: center;
+  font-size: 64px;
+  color: #c0392b;
+  margin: 10px;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+button.tablinks {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  padding: 0 0 50px 50px;
+}
+
+.tabcontent {
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.tabcontent h1 {
+  font-weight: 700;
+}
+
+a.logoutBtn {
+  top: 0;
+  right: 0;
+  position: absolute;
+  text-decoration: none;
+  color: white;
+  background-color: #c0392b;
+  border-radius: 6px;
+  width: 125px;
+  height: 53px;
+  text-align: center;
+  line-height: 53px;
+  margin: 20px 20px 20px 0;
+  display: block;
+}
+
+a.logoutBtn:hover {
+  -webkit-box-shadow: 0px 0px 26px -6px rgba(0, 0, 0, 0.9);
+  -moz-box-shadow: 0px 0px 26px -6px rgba(0, 0, 0, 0.9);
+  box-shadow: 0px 0px 26px -6px rgba(0, 0, 0, 0.9);
+  transition-duration: 0.25s;
+}
+
+table {
+  border: 1px solid #95a5a6;
+  padding: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 26px -6px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 0px 26px -6px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 26px -6px rgba(0, 0, 0, 0.4);
+}
+
+th {
+  border-radius: 15px;
+  color: #34495e;
+}
+
+th,
+td {
+  padding: 20px;
+  border: none;
+}
+
+th a {
+  text-decoration: none;
+  color: #34495e;
+  width: 80px;
+  height: 30px;
+  border-radius: 10px;
+}
+
+td span img,
+td img {
+  height: 25px;
+  width: 25px;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+
+tr:not(:first-child):hover {
+  background-color: #f5f6fa;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.tooltiptext {
+  display: none;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 469;
+  top: -5px;
+  left: 105%;
+}
+.tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%; /* To the left of the tooltip */
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
+
+span.tooltip:hover .tooltiptext {
+  display: block;
+  transition-duration: 0.5s;
+}
+
+
+
