@@ -10,6 +10,7 @@
 		- username: admin,yang lain2 boleh hentam
 	- 3. dah register, pergi database, cari user admin tadi.
 	- 4. klik edit, dekat column isAdmin,tukar jd 41 (jgn tanya kenapa, haha).
+	- 5. dekat column approved, tukar jadi 1.
 	- Klik save,setel.
 	
 3. software testing
