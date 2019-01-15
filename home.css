@@ -155,3 +155,6 @@ a.logoutBtn {
 	font-weight: 700;
 }
 
+.default {
+	cursor: default;
+}

@@ -43,9 +43,30 @@
 	  				<?php echo $row['bio']; ?>
 	  			</p>
 	  			<div class="social">
-	  				<a id="facebook" href="https://facebook.com/<?php echo $row['facebook']; ?>"><img data-alt-src="img/facebook.gif" src="img/facebook.png"></a>
-	  				<a id="instagram" href="https://instagram.com/<?php echo $row['instagram']; ?>"><img data-alt-src="img/instagram.gif" src="img/instagram.png"></a>
-	  				<a id="twitter" href="https://twitter.com/<?php echo $row['twitter']; ?>"><img data-alt-src="img/twitter.gif" src="img/twitter.png"></a>
+  					<?php
+					$urlFB = "https://www.facebook.com/" . $row['facebook'];
+					$urlIG = "https://www.instagram.com/" . $row['instagram'];
+					$urlTW = "https://www.twitter.com/" . $row['twitter'];
+
+					if($row['facebook']==null || $row['facebook']==""){
+						echo "<a class='default' id='facebook' href='#'><img src='img/facebook.png'></a>";
+					} else {
+						echo "<a id='facebook' href='$urlFB'><img data-alt-src='img/facebook.gif' src='img/facebook.png'></a>";
+					}
+					
+					if($row['instagram']==null || $row['instagram']==""){
+						echo "<a class='default' id='instagram' href='#'><img src='img/instagram.png'></a>";
+					} else {
+						echo "<a id='instagram' href='$urlIG'><img data-alt-src='img/instagram.gif' src='img/instagram.png'></a>";
+					}
+
+					if($row['twitter']==null || $row['twitter']==""){
+						echo "<a class='default' id='twitter' href='#'><img src='img/twitter.png'></a>";
+					} else {
+						echo "<a id='twitter' href='$urlTW'><img data-alt-src='img/twitter.gif' src='img/twitter.png'></a>";
+					}
+					
+					?>
 	  			</div>
 	  			
 	  		</div>

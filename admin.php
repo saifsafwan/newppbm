@@ -117,10 +117,14 @@
 						$wordLastSeen = "Last seen " . $elapsed . " ago";
 					}
 					else if($elapsed<="0 days 23 hours 59 minutes"){
-						$elapsed = $interval->format('%h hours %i minutes');
+						$elapsed = $interval->format('%h hours');
 						$wordLastSeen = "Last seen " . $elapsed . " ago";
 					}
+					else if($elapsed<="1 days 23 hours 59 minutes"){
+						$wordLastSeen = "Last seen yesterday";
+					}
 					else {
+						$elapsed = $interval->format('%a days');
 						$wordLastSeen = "Last seen " . $elapsed . " ago";
 					}
 					echo 	"<td>" .$wordLastSeen."</td>";
