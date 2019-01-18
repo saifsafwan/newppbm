@@ -93,7 +93,6 @@ a.logoutBtn:hover {
 }
 
 table {
-  border: 1px solid #95a5a6;
   padding: 10px;
   border-radius: 10px;
   -webkit-box-shadow: 0px 0px 26px -6px rgba(0, 0, 0, 0.4);
@@ -170,6 +169,3 @@ span.tooltip:hover .tooltiptext {
   display: block;
   transition-duration: 0.5s;
 }
-
-
-
