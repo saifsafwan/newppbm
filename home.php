@@ -1,20 +1,20 @@
 <?php 
-  session_start(); 
+session_start();
 
-  if (!isset($_SESSION['username'])) {
-  	header('location: login.php');
-  }
+if (!isset($_SESSION['username'])) {
+	header('location: login.php');
+}
 
-  include('config.php'); 
+include('config.php');
 
-  $currentUsername = $_SESSION['username'];
+$currentUsername = $_SESSION['username'];
   // DB CONNECTION
-  $link = mysqli_connect($host,$user,$pw,$db);
-  $primeQuery = "SELECT * FROM users WHERE username='$currentUsername'";
-  $result = mysqli_query($link, $primeQuery);
-  $row = mysqli_fetch_array($result);
+$link = mysqli_connect($host, $user, $pw, $db);
+$primeQuery = "SELECT * FROM users WHERE username='$currentUsername'";
+$result = mysqli_query($link, $primeQuery);
+$row = mysqli_fetch_array($result);
 
-  
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,59 +33,62 @@
 	<div class="overlaySuccess">
 		<img src="img/shield.png">
 		<h1>Your account has been activated!</h1>
-	</div>
-	<div class="grid-container">
-		<div class="header">
-	  		<img class="avatar" src="img/<?php echo $row['profilePic']; ?>">
-	  		<div class="intro">
-	  			<h1>Welcome <?php echo $row['firstName']; ?></h1>
-	  			<p>
-	  				<?php echo $row['bio']; ?>
-	  			</p>
-	  			<div class="social">
-  					<?php
-					$urlFB = "https://www.facebook.com/" . $row['facebook'];
-					$urlIG = "https://www.instagram.com/" . $row['instagram'];
-					$urlTW = "https://www.twitter.com/" . $row['twitter'];
-
-					if($row['facebook']==null || $row['facebook']==""){
-						echo "<a class='default' id='facebook' href='#'><img src='img/facebook.png'></a>";
-					} else {
-						echo "<a id='facebook' href='$urlFB'><img data-alt-src='img/facebook.gif' src='img/facebook.png'></a>";
-					}
-					
-					if($row['instagram']==null || $row['instagram']==""){
-						echo "<a class='default' id='instagram' href='#'><img src='img/instagram.png'></a>";
-					} else {
-						echo "<a id='instagram' href='$urlIG'><img data-alt-src='img/instagram.gif' src='img/instagram.png'></a>";
-					}
-
-					if($row['twitter']==null || $row['twitter']==""){
-						echo "<a class='default' id='twitter' href='#'><img src='img/twitter.png'></a>";
-					} else {
-						echo "<a id='twitter' href='$urlTW'><img data-alt-src='img/twitter.gif' src='img/twitter.png'></a>";
-					}
-					
-					?>
-	  			</div>
-	  			
-	  		</div>
-	  		<a class="editBtn" href="edit.php">Edit Details</a>
+    </div>
+    <div class="grid-container">
+        <div class="header">
+            <img src="img/whitelogo.png" alt="PPBM logo">
+            <a class="editBtn" href="edit.php">Edit Details</a>
 	  		<a class="logoutBtn" href="logout.php">Logout</a>
-		</div>
-		<div class="padding">
-	  	
-		</div>
-		<div class="padding2">
-	  		
-		</div>
-		<div class="mainContainer">
-			
-		</div>
-	</div>	
-	
+        </div>
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="mainHeader">
+            <div class="avatar">
+                <img src="img/<?php echo $row['profilePic']; ?>" alt="avatar">
+            </div>
+            <div class="textName">
+                <h1><?php
+																			echo $row['firstName'];
+																			echo " ";
+																			echo $row['lastName'];
+																			?>
+                </h1>
+            </div>
+            <div class="social">
+            <?php
+											$urlFB = "https://www.facebook.com/" . $row['facebook'];
+											$urlIG = "https://www.instagram.com/" . $row['instagram'];
+											$urlTW = "https://www.twitter.com/" . $row['twitter'];
 
-	<script type="text/javascript">
+											if ($row['facebook'] == null || $row['facebook'] == "") {
+												echo "<a class='default' id='facebook' href='#'><img src='img/facebook.png'></a>";
+											} else {
+												echo "<a id='facebook' href='$urlFB'><img data-alt-src='img/facebook.gif' src='img/facebook.png'></a>";
+											}
+
+											if ($row['instagram'] == null || $row['instagram'] == "") {
+												echo "<a class='default' id='instagram' href='#'><img src='img/instagram.png'></a>";
+											} else {
+												echo "<a id='instagram' href='$urlIG'><img data-alt-src='img/instagram.gif' src='img/instagram.png'></a>";
+											}
+
+											if ($row['twitter'] == null || $row['twitter'] == "") {
+												echo "<a class='default' id='twitter' href='#'><img src='img/twitter.png'></a>";
+											} else {
+												echo "<a id='twitter' href='$urlTW'><img data-alt-src='img/twitter.gif' src='img/twitter.png'></a>";
+											}
+
+											?>
+            </div>
+        </div>
+        <div class="bio">
+            <p>
+            <?php echo $row['bio']; ?>
+            </p>
+        </div>
+        <div class="footer"></div>
+    </div>
+    <script type="text/javascript">
 		
 		let checkLock = <?php echo $row['approved']; ?>;
 		console.log(checkLock);
