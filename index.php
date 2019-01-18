@@ -24,11 +24,10 @@
 		</div>
 	</div>
 	<div class="about">
-		<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut</h1>
+		<h1>Stay connected with our community by following us on our social media today and get to know our latest updates instantly!</h1>
 		<div class="icons">
-			<img src="img/facebook.png" alt="Facebook">
-			<img src="img/instagram.png" alt="Instagram">
+			<a href="https://www.facebook.com/pribumibersatuofficial/"><img src="img/facebook.png" alt="Facebook"></a>
+			<a href="https://www.instagram.com/ppbmofficial/"><img src="img/instagram.png" alt="Instagram"></a>
 		</div>
 	</div>
 	<div class="callToAction">
