@@ -33,7 +33,7 @@ To get started, please follow these steps:
 
 ## Authors
 
-* **Saif Safwan** - *Initial work* - [PurpleBooth](https://github.com/saifsafwan)
+* **[Saif Safwan](https://github.com/saifsafwan)** - *Initial work* 
 * **Wai Jia Jun** 
 * **Adam Muhammad**
 
