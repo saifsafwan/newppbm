@@ -11,7 +11,14 @@ if (!isset($currentUsername)) {
 	header('location: login.php');
 }
   //including database info
-include('config.php'); 
+include('config.php');
+
+
+use Carbon\Carbon;
+
+require 'vendor/autoload.php';
+
+$dt = Carbon::now('Asia/Kuala_Lumpur');
 
   
   // DB CONNECTION
@@ -112,28 +119,12 @@ if ($row['isAdmin'] == 0) {
 				}
 				echo "</td>";
 
-				$datetime1Obj = DateTime::createFromFormat('Y-m-d H:i:s', $datetime1); //return object
-
 				$dateInDB = $row['lastSeen'];
-				$dateInDBObj = DateTime::createFromFormat('Y-m-d H:i:s', $dateInDB); //return object
+				$dateInDBObj = Carbon::createFromFormat('Y-m-d H:i:s', $dateInDB); //return object
+				$getAgo = $dateInDBObj->diffForHumans();
 
-				$interval = $datetime1Obj->diff($dateInDBObj);
-				$elapsed = $interval->format('%a days %h hours %i minutes');
+				$wordLastSeen = "Last seen " . $getAgo;
 
-				if ($elapsed <= "0 days 0 hours 0 minutes") {
-					$wordLastSeen = "Last seen just now";
-				} else if ($elapsed <= "0 days 0 hours 59 minutes") {
-					$elapsed = $interval->format('%i minutes');
-					$wordLastSeen = "Last seen " . $elapsed . " ago";
-				} else if ($elapsed <= "0 days 23 hours 59 minutes") {
-					$elapsed = $interval->format('%h hours');
-					$wordLastSeen = "Last seen " . $elapsed . " ago";
-				} else if ($elapsed <= "1 days 23 hours 59 minutes") {
-					$wordLastSeen = "Last seen yesterday";
-				} else {
-					$elapsed = $interval->format('%a days');
-					$wordLastSeen = "Last seen " . $elapsed . " ago";
-				}
 				echo "<td>" . $wordLastSeen . "</td>";
 				echo "<td><span class='tooltip'><a class=\"confirmation\" href=\"?deleteUser=" . $row['id'] . "\"><img src='img/bin.png'></a><span class='tooltiptext'>Delete User</span></span>";
 
