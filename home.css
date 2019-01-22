@@ -184,3 +184,6 @@ a.logoutBtn:hover {
   color: #44bd32;
   font-weight: 700;
 }
+.default a {
+  cursor: context-menu;
+}

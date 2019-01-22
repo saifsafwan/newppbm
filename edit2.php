@@ -127,6 +127,7 @@ if ($rowNo == 1) {
 		echo "<div class='show'><h1>twitter is UPDATED</h1></div>";
 	} else {
 		echo "<div class='hide'><h1>twitter not updated</h1></div>";
+		echo "<div class='showWrong'><h1>Nothing changed...wtf?!</h1></div>";
 	}
 } else {
 	echo "<div class='hide'><h1>you are not having session</h1></div>";
